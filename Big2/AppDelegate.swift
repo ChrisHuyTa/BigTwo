@@ -16,6 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let homeViewController = UITabBarController()
+        homeViewController.tabBar.tintColor = .white
+        let enterPlayerInfoVC = EnterPlayerInfoViewController()
+        
+        let navVC = UINavigationController(rootViewController: enterPlayerInfoVC)
+        
+        let secondViewController = SecondViewController()
+        
+        homeViewController.setViewControllers([navVC, secondViewController], animated: true)
+        window?.rootViewController = homeViewController
+        window?.makeKeyAndVisible()
         return true
     }
 
